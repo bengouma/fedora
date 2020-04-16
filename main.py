@@ -1,25 +1,25 @@
-import tkinter
+import Tkinter
 from PIL import ImageTk, Image
 from pydub import AudioSegment
 from pydub.playback import play
 
 #Creates main window
-root = tkinter.Tk()
+root = Tkinter.Tk()
 root.title("Fedora Tipping Simulator")
 
 #Specifies the height and width of the window
-winSize = tkinter.Canvas(height = 60, width = 300)
+winSize = Tkinter.Canvas(height = 60, width = 300)
 
 #Opens the fedora image
 imageFed0 = Image.open("fedora.jpeg")
 
 #Creates a label with tkinter and sets it's image to the fedora image
 tkFed0 = ImageTk.PhotoImage(imageFed0)
-fedoraImg = tkinter.Label(root, image = tkFed0)
+fedoraImg = Tkinter.Label(root, image = tkFed0)
 
 #Sets the original score to zero
 score = 0
-scoreLabel = tkinter.Label(root, text = "Score: " + str(score))
+scoreLabel = Tkinter.Label(root, text = "Score: " + str(score))
 
 #rotates the image fifteen degrees
 def rotateToFifteen():
@@ -56,11 +56,11 @@ def press():
     root.after(1000, rotateToZero)
 	
 	#Plays the m'lady audio segment
-    lady = AudioSegment.from_mp3("m'lady.mp3")
+    lady = AudioSegment.from_mp3("mlady.mp3")
     play(lady)
 
 #Creates the button and sets it's command to the press function
-tipFed0 = tkinter.Button(root, text = "Tip Fedora", command = press)
+tipFed0 = Tkinter.Button(root, text = "Tip Fedora", command = press)
 
 #packs all the tkinter objects
 tipFed0.pack()
